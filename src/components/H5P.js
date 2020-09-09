@@ -1,9 +1,9 @@
 import React from "react";
 
-const H5P = () => {
+const H5P = ({ src }) => {
   return (
     <iframe
-      src="https://h5p.org/h5p/embed/732623"
+      src={src}
       width="1090"
       height="783"
       frameborder="0"

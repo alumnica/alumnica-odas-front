@@ -33,7 +33,6 @@ const ODAScreen = () => {
   let { id } = useParams();
   return (
     <div className="screen">
-    <Content[Video]/>
       <h2 className="title">Soy la ODA con id: {id}</h2>
     </div>
   );

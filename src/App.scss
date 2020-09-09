@@ -42,7 +42,8 @@ h3 {
   letter-spacing: 0.1rem;
 }
 
-p,h4 {
+p,
+h4 {
   color: $gray-800;
   line-height: 1.8rem;
 }
@@ -86,6 +87,12 @@ p,h4 {
 .header-brand img {
   height: 40px;
   width: auto;
+}
+
+.clickable-card {
+  &:hover {
+    opacity: 80%;
+  }
 }
 
 /* ODAs */

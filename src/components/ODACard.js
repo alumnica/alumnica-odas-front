@@ -44,11 +44,11 @@ const ODACard = ({ children, id, subject, name, description, imgSrc }) => {
   let history = useHistory();
 
   const onClick = () => {
-    history.push(`/odas/${id}`);
+    history.push(`/${id}`);
   };
 
   return (
-    <Col xs="12" sm="10" lg="6">
+    <Col className="clickable-card" xs="12" sm="10" lg="6">
       <div onClick={onClick}>
         <Row className="justify-content-center mt-5">
           <Col className="mb-3" xs="8" sm="4">

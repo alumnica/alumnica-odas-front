@@ -12,16 +12,16 @@ import ODAScreen from "./screens/ODAScreen.js";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/odas">
       <Container>
         <Header />
         {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
         <Switch>
-          <Route exact path="/odas">
+          <Route exact path="/">
             <ODAsScreen />
           </Route>
-          <Route exact path="/odas/:id">
+          <Route exact path="/:id">
             <ODAScreen />
           </Route>
         </Switch>

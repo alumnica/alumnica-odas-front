@@ -14,22 +14,20 @@ import MomentosScreen from "./screens/MomentosScreen.js";
 function App() {
   return (
     <Router basename="/odas">
-      <Container>
-        <Header />
-        {/* A <Switch> looks through its children <Route>s and
+      <Header />
+      {/* A <Switch> looks through its children <Route>s and
                     renders the first one that matches the current URL. */}
-        <Switch>
-          <Route exact path="/">
-            <ODAsScreen />
-          </Route>
-          <Route exact path="/:id/:name">
-            <MomentosScreen />
-          </Route>
-          <Route exact path="/:id">
-            <ODAScreen />
-          </Route>
-        </Switch>
-      </Container>
+      <Switch>
+        <Route exact path="/">
+          <ODAsScreen />
+        </Route>
+        <Route exact path="/:id/:name">
+          <MomentosScreen />
+        </Route>
+        <Route exact path="/:id">
+          <ODAScreen />
+        </Route>
+      </Switch>
     </Router>
   );
 }

@@ -9,6 +9,7 @@ import Header from "./components/Header.js";
 import Alert from "react-bootstrap/Alert";
 import ODAsScreen from "./screens/ODAsScreen.js";
 import ODAScreen from "./screens/ODAScreen.js";
+import MomentosScreen from "./screens/MomentosScreen.js";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <ODAsScreen />
+          </Route>
+          <Route exact path="/:id/:name">
+            <MomentosScreen />
           </Route>
           <Route exact path="/:id">
             <ODAScreen />

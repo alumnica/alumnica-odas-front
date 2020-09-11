@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Video.scss";
 
 const Video = ({ src }) => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   return (
     <div className="video-container">

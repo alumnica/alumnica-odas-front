@@ -46,7 +46,7 @@ const MomentosScreen = () => {
     return orderedData.map((content) => {
       let { type } = content;
       if (type === "h5p") {
-        return <Content.H5P src={content.url_moment} />;
+        return <Content.H5P src={content.url_moment} name={content.name}/>;
       } else if (type === "img") {
         return <Content.Image src={content.url_moment} name={content.name} />;
       } else if (type === "mp4") {
@@ -54,6 +54,7 @@ const MomentosScreen = () => {
       } else if (type === "text") {
         return <Content.Text text={content.text} />;
       }
+      return null;
     });
   };
 

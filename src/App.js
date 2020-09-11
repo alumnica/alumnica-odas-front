@@ -1,12 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-import Container from "react-bootstrap/Container";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import Header from "./components/Header.js";
-import Alert from "react-bootstrap/Alert";
 import ODAsScreen from "./screens/ODAsScreen.js";
 import ODAScreen from "./screens/ODAScreen.js";
 import MomentosScreen from "./screens/MomentosScreen.js";

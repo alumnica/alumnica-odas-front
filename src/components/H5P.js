@@ -1,6 +1,6 @@
 import React from "react";
 
-const H5P = ({ src }) => {
+const H5P = ({ src, name }) => {
   return (
     <iframe
       src={src}
@@ -8,6 +8,7 @@ const H5P = ({ src }) => {
       height="783"
       frameborder="0"
       allowfullscreen="allowfullscreen"
+      title={name}
     />
   );
 };

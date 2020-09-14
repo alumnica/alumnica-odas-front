@@ -2,6 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Content from "../components/Content.js";
 import _ from "lodash";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import "./MomentoScreen.scss";
+import DescriptionCard from "../components/DescriptionCard.js"
 
 const fakeData = [
   {
@@ -45,25 +50,36 @@ const MomentosScreen = () => {
     let orderedData = _.sortBy(rawData, "orden");
     return orderedData.map((content) => {
       let { type } = content;
+      let contentComponent;
       if (type === "h5p") {
-        return <Content.H5P src={content.url_moment} name={content.name}/>;
+        contentComponent = (
+          <Content.H5P src={content.url_moment} name={content.name} />
+        );
       } else if (type === "img") {
-        return <Content.Image src={content.url_moment} name={content.name} />;
+        contentComponent = (
+          <Content.Image src={content.url_moment} name={content.name} />
+        );
       } else if (type === "mp4") {
-        return <Content.Video src={content.url_moment} />;
+        contentComponent = <Content.Video src={content.url_moment} />;
       } else if (type === "text") {
-        return <Content.Text text={content.text} />;
+        contentComponent = <Content.Text text={content.text} />;
       }
-      return null;
+      return (
+        <Col sm="10" className="block justify-content-center mx-auto">
+          {contentComponent}
+        </Col>
+      );
     });
   };
 
   renderContents(fakeData);
   return (
-    <div className="screen">
-      <h2 className="title">Soy la ODA con id: {id}</h2>
-      {renderContents(fakeData)}
-    </div>
+    <Container>
+      <Row className="justify-content-center">
+        <DescriptionCard center title="Este es el título" extraInfo="conectar"/>
+        {renderContents(fakeData)}
+      </Row>
+    </Container>
   );
 };
 

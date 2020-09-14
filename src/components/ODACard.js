@@ -23,7 +23,7 @@ const ODACard = ({ children, id, subject, name, description, imgSrc }) => {
           </Col>
           <Col xs="12" sm="8">
             <h4 className="nota-materia">{subject}</h4>
-            <h3>{name}</h3>
+            <h2>{name}</h2>
             <p>{description}</p>
             <Link to={`/${id}`}>
               Ver <i className="far fa-eye"/>

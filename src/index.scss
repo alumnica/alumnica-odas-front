@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700,900|Playfair+Display:700&display=swap&subset=latin-ext");
-
+//Hamburger
+$hamburger-padding-x: 15px;
+$hamburger-padding-y: 15px;
+$hamburger-layer-width: 30px;
+$hamburger-layer-height: 3px;
+$hamburger-layer-spacing: 4px;
+$hamburger-layer-color: #000;
+$hamburger-layer-border-radius: 6px;
+$hamburger-hover-opacity: 1;
+$hamburger-active-layer-color: #ff3f74;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity;
+@import "../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
 //Bootstrap Imports for Mixings
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
@@ -10,6 +21,14 @@
 $alumnica-green: #ccff8d;
 $alumnica-gray: #e2e2e2;
 $font-size-base: 1rem;
+$nav-gray: $gray-600;
+
+.screen-container {
+  padding-top: 75px;
+  @include media-breakpoint-up(md) {
+    padding-top: 66px;
+  }
+}
 
 body {
   font-family: "Lato", sans-serif;
@@ -109,4 +128,40 @@ h4.nota-materia {
   font-variant: small-caps;
   font-size: 1rem;
   letter-spacing: 0.15rem;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-bg {
+  background-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+  color: #000000;
+}
+
+.navbar-toggler:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline-width: 0;
+}
+/* NAVLINKS */
+.nav-item {
+  &:hover {
+    cursor: pointer;
+  }
+  a {
+    color: $gray-800;
+    font-variant: small-caps;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    margin: 0 0.5rem;
+    &:hover {
+      color: $nav-gray;
+    }
+  }
 }

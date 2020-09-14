@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import "./MomentoScreen.scss";
-import DescriptionCard from "../components/DescriptionCard.js"
+import DescriptionCard from "../components/DescriptionCard.js";
 
 const fakeData = [
   {
@@ -74,9 +74,13 @@ const MomentosScreen = () => {
 
   renderContents(fakeData);
   return (
-    <Container>
+    <Container className="screen-container">
       <Row className="justify-content-center">
-        <DescriptionCard center title="Este es el título" extraInfo="conectar"/>
+        <DescriptionCard
+          center
+          title="Este es el título"
+          extraInfo="conectar"
+        />
         {renderContents(fakeData)}
       </Row>
     </Container>

@@ -56,7 +56,7 @@ const renderODACards = () => {
 
 const ODAsScreen = () => {
   return (
-    <Container>
+    <Container className="screen-container">
       <Row>{renderODACards()}</Row>
     </Container>
   );

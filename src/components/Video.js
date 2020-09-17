@@ -6,7 +6,7 @@ const Video = ({ src }) => {
 
   return (
     <div className="video-container">
-      <video width="1920" height="1350" autoPlay controls src={src} />
+      <video width="1920" height="1350" autoPlay controls muted="false" src={src} />
     </div>
   );
 };

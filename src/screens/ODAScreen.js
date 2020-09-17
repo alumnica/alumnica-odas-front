@@ -17,11 +17,15 @@ const ODAScreen = () => {
   };
   return (
     <>
-      <div onClick={onClick} className="screen-container">
-        <Hero>
+      <Hero>
+        <div
+          onClick={() => {
+            onClick();
+          }}
+        >
           <h2 className="title">Soy la ODA con id: {id}</h2>
-        </Hero>
-      </div>
+        </div>
+      </Hero>
       <Container>
         <ODAInfoCard
           name="nombre"

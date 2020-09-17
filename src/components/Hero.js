@@ -4,8 +4,8 @@ import "./Hero.scss";
 
 const Hero = ({ children }) => {
   return (
-    <Container className="hero-container" fluid="md" >
-      <div className="hero">{children}</div>
+    <Container className="hero-container force-fluid-md" >
+      <div className="hero header-padding">{children}</div>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 import ODAsScreen from "./screens/ODAsScreen.js";
 import ODAScreen from "./screens/ODAScreen.js";
 import MomentosScreen from "./screens/MomentosScreen.js";
@@ -22,6 +23,7 @@ function App() {
           <ODAScreen />
         </Route>
       </Switch>
+      <Footer/>
     </Router>
   );
 }

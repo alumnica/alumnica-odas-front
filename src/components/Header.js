@@ -1,5 +1,3 @@
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import logo from "../assets/alumnica_negro.png";
@@ -50,7 +48,7 @@ const Header = () => {
               }}
               className="nav-item"
             >
-              <a className="nav-link">contenidos</a>
+              <a className="nav-link" href>contenidos</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="escuelas#contacto">

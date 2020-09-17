@@ -56,7 +56,7 @@ const renderODACards = () => {
 
 const ODAsScreen = () => {
   return (
-    <Container className="screen-container">
+    <Container className="header-padding">
       <Row>{renderODACards()}</Row>
     </Container>
   );

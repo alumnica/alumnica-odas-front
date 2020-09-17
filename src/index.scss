@@ -23,7 +23,7 @@ $alumnica-gray: #e2e2e2;
 $font-size-base: 1rem;
 $nav-gray: $gray-600;
 
-.screen-container {
+.header-padding {
   padding-top: 75px;
   @include media-breakpoint-up(md) {
     padding-top: 66px;
@@ -164,4 +164,56 @@ h4.nota-materia {
       color: $nav-gray;
     }
   }
+}
+
+/* ----FOOTER---- */
+.social-footer-btn:hover {
+  background-color: $nav-gray;
+}
+
+.acento-footer {
+  height: 0.8rem;
+  width: auto;
+}
+
+.copy-rigth > a,
+.copy-rigth > img,
+.copy-rigth > p {
+  font-size: 0.8rem;
+  color: $nav-gray;
+  display: inline-block;
+}
+
+.copy-rigth > a,
+.copy-rigth > p {
+  font-variant: small-caps;
+}
+
+.footer-nav {
+  padding: 5vh 0 0;
+}
+@include media-breakpoint-up(md) {
+  .footer-nav a {
+    font-size: 1.2rem;
+    letter-spacing: 0.04rem;
+    font-weight: 700;
+    margin: 0 0.01rem;
+    color: #000;
+  }
+}
+
+.footer-nav a {
+  font-size: 1rem;
+  letter-spacing: 0.04rem;
+  margin: 0 -0.5rem;
+  color: #000;
+}
+
+.footer {
+  background-color: $alumnica-green;
+  min-height: 35vh;
+}
+
+p.point8em {
+  font-size: 0.65em;
 }

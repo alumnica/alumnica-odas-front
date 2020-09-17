@@ -74,12 +74,12 @@ const MomentosScreen = () => {
 
   renderContents(fakeData);
   return (
-    <Container className="screen-container">
+    <Container className="header-padding">
       <Row className="justify-content-center">
         <DescriptionCard
           center
           title="Este es el título"
-          extraInfo="conectar"
+          extraInfo={`conectar ${id}`}
         />
         {renderContents(fakeData)}
       </Row>

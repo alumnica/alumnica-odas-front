@@ -33,6 +33,10 @@ export const { getOdas, getOdasSuccess, getOdasFailure } = odasSlice.actions;
 
 //Selectors
 export const odasSelector = (state) => state.odas;
+export const odaIdSelector = (state, id) => {
+  return state.odas.odas.filter(oda => oda.id === Number(id) )[0]
+}
+
 
 //Reducer
 export default odasSlice.reducer;
@@ -42,13 +46,11 @@ export const fetchOdas = () => {
   return async (dispatch) => {
     dispatch(getOdas());
     try {
-      const response = await axios.get(
-        "https://app.alumnica.org/api/odas/"
-      );
+      const response = await axios.get("https://app.alumnica.org/api/odas/");
 
       dispatch(getOdasSuccess(response.data));
     } catch (error) {
-      console.log(error)
+      console.log(error);
       dispatch(getOdasFailure());
     }
   };

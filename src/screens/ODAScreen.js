@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMomentos, momentosSelector } from "../slices/momentos";
+import { odaIdSelector } from "../slices/odas";
 
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
@@ -10,6 +11,7 @@ import Row from "react-bootstrap/Row";
 import Hero from "../components/Hero.js";
 import DescriptionCard from "../components/DescriptionCard.js";
 import ODAInfoCard from "../components/ODAInfoCard.js";
+import MomentosInfoCards from "../components/MomentosInfoCards.js";
 
 const ODAScreen = () => {
   let { oda_id } = useParams();
@@ -17,6 +19,9 @@ const ODAScreen = () => {
 
   const dispatch = useDispatch();
   const { momentos } = useSelector(momentosSelector);
+  const { name, description, subject } = useSelector((state) => {
+    return odaIdSelector(state, oda_id);
+  });
 
   useEffect(() => {
     dispatch(fetchMomentos(oda_id));
@@ -25,7 +30,7 @@ const ODAScreen = () => {
   const onClick = (momento_id) => {
     history.push(`/${oda_id}/momento/${momento_id}`);
   };
-  console.log("momento", momentos);
+
   return (
     <div className="screen-container">
       <Hero>
@@ -39,67 +44,12 @@ const ODAScreen = () => {
       </Hero>
       <Container>
         <ODAInfoCard
-          name="nombre"
+          name={name}
+          description={description}
           objective="propósito de aprendizaje"
-          subject="materia"
+          subject={subject.name}
         />
-        <Row>
-          <Col md="6">
-            <DescriptionCard title="SOY EL TITULO">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </DescriptionCard>
-          </Col>
-          <Col md="6">
-            <DescriptionCard title="SOY EL TITULO">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </DescriptionCard>
-          </Col>
-          <Col md="6">
-            <DescriptionCard title="SOY EL TITULO">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </DescriptionCard>
-          </Col>
-          <Col md="6">
-            <DescriptionCard title="SOY EL TITULO">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </DescriptionCard>
-          </Col>
-          <Col md="6">
-            <DescriptionCard mini title="SOY EL TITULO">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </DescriptionCard>
-          </Col>
-        </Row>
+        <MomentosInfoCards momentos={momentos} oda_id={oda_id}/>
         <Row>
           <Col>
             <div style={{ overflowWrap: "anywhere" }}>

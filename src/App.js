@@ -5,13 +5,13 @@ import Footer from "./components/Footer.js";
 import ODAsScreen from "./screens/ODAsScreen.js";
 import ODAScreen from "./screens/ODAScreen.js";
 import MomentosScreen from "./screens/MomentosScreen.js";
+import ScrollToTop from "./components/ScrollToTop.js";
 
 function App() {
   return (
     <Router basename="/odas">
+      <ScrollToTop />
       <Header />
-      {/* A <Switch> looks through its children <Route>s and
-                    renders the first one that matches the current URL. */}
       <Switch>
         <Route exact path="/">
           <ODAsScreen />
@@ -23,7 +23,7 @@ function App() {
           <ODAScreen />
         </Route>
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 }

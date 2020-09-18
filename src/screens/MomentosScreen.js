@@ -55,7 +55,7 @@ const MomentosScreen = () => {
 
   useEffect(() => {
     dispatch(fetchContenido(momento_id));
-  }, [dispatch,momento_id]);
+  }, [dispatch, momento_id]);
 
   const renderContents = (rawData) => {
     let orderedData = _.sortBy(rawData, "orden");
@@ -85,16 +85,18 @@ const MomentosScreen = () => {
 
   renderContents(fakeData);
   return (
-    <Container className="header-padding">
-      <Row className="justify-content-center">
-        <DescriptionCard
-          center
-          title="Este es el título"
-          extraInfo={`conectar ${momento_id}`}
-        />
-        {renderContents(fakeData)}
-      </Row>
-    </Container>
+    <div className="screen-container">
+      <Container>
+        <Row className="justify-content-center">
+          <DescriptionCard
+            center
+            title="Este es el título"
+            extraInfo={`conectar ${momento_id}`}
+          />
+          {renderContents(fakeData)}
+        </Row>
+      </Container>
+    </div>
   );
 };
 

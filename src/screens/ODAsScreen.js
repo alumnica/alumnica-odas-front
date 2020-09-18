@@ -10,7 +10,6 @@ const ODAsScreen = () => {
   const { odas } = useSelector(odasSelector);
 
   const renderODACards = (data) => {
-    
     return data.map(({ id, name, description, img_oda }) => {
       return (
         <ODACard
@@ -29,9 +28,11 @@ const ODAsScreen = () => {
   }, [dispatch]);
 
   return (
-    <Container className="header-padding">
-      <Row>{renderODACards(odas)}</Row>
-    </Container>
+    <div className="screen-container">
+      <Container className="header-padding">
+        <Row>{renderODACards(odas)}</Row>
+      </Container>
+    </div>
   );
 };
 

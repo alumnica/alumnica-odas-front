@@ -27,7 +27,7 @@ const ODAScreen = () => {
   };
   console.log("momento", momentos);
   return (
-    <>
+    <div className="screen-container">
       <Hero>
         <div
           onClick={() => {
@@ -134,7 +134,7 @@ const ODAScreen = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

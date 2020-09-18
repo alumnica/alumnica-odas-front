@@ -23,10 +23,11 @@ $alumnica-gray: #e2e2e2;
 $font-size-base: 1rem;
 $nav-gray: $gray-600;
 
-.header-padding {
-  padding-top: 75px;
+.screen-container {
+  margin-top: 75px;
+  padding-bottom: $font-size-base * 4;
   @include media-breakpoint-up(md) {
-    padding-top: 66px;
+    margin-top: 66px;
   }
 }
 

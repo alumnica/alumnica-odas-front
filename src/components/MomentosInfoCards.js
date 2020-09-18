@@ -12,7 +12,6 @@ const ODAInfoCard = ({ momentos, oda_id }) => {
   const onClick = (momento_id) => {
     history.push(`/${oda_id}/momento/${momento_id}`);
   };
-  console.log(momentos);
 
   const formatName = (name) => {
     return name.split("_oda_")[0];

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMomentos, momentosSelector } from "../slices/momentos";
+import { fetchOdas } from "../slices/odas";
 import { odaIdSelector } from "../slices/odas";
 
 import Container from "react-bootstrap/Container";
@@ -19,37 +20,30 @@ const ODAScreen = () => {
 
   const dispatch = useDispatch();
   const { momentos } = useSelector(momentosSelector);
-  const { name, description, subject } = useSelector((state) => {
+  const oda = useSelector((state) => {
     return odaIdSelector(state, oda_id);
   });
 
   useEffect(() => {
     dispatch(fetchMomentos(oda_id));
-  }, [dispatch, oda_id]);
-
-  const onClick = (momento_id) => {
-    history.push(`/${oda_id}/momento/${momento_id}`);
-  };
+    if (!oda) {
+      dispatch(fetchOdas());
+    }
+  }, [dispatch, oda_id, oda]);
 
   return (
     <div className="screen-container">
       <Hero>
-        <div
-          onClick={() => {
-            onClick(37);
-          }}
-        >
-          <h2 className="title">Soy la ODA con id: {oda_id}</h2>
-        </div>
+        <h2 className="title">Soy la ODA con id: {oda_id}</h2>
       </Hero>
       <Container>
         <ODAInfoCard
-          name={name}
-          description={description}
+          name={oda && oda.name}
+          description={oda && oda.description}
           objective="propósito de aprendizaje"
-          subject={subject.name}
+          subject={oda && oda.subject.name}
         />
-        <MomentosInfoCards momentos={momentos} oda_id={oda_id}/>
+        <MomentosInfoCards momentos={momentos} oda_id={oda_id} />
         <Row>
           <Col>
             <div style={{ overflowWrap: "anywhere" }}>

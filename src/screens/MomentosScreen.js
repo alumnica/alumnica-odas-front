@@ -18,7 +18,7 @@ const fakeData = [
     name: "IMC_A10",
     type: "h5p",
     url_moment: "https://h5p.org/h5p/embed/732604",
-    orden: 2,
+    default_position: 2,
   },
   {
     id: 4,
@@ -26,7 +26,7 @@ const fakeData = [
     type: "text",
     text:
       "Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.Esto va al final y es un prueba de texto.",
-    orden: 4,
+    default_position: 4,
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const fakeData = [
     type: "mp4",
     url_moment:
       "https://alumnica-studio-dev.s3-us-west-1.amazonaws.com/moment_files/1LF-C-PC-Cr1_corregido.mp4",
-    orden: 1,
+    default_position: 1,
   },
 
   {
@@ -43,7 +43,7 @@ const fakeData = [
     type: "img",
     url_moment:
       "https://alumnica-studio-dev.s3-us-west-1.amazonaws.com/moment_files/7.png",
-    orden: 3,
+    default_position: 3,
   },
 ];
 
@@ -58,13 +58,13 @@ const MomentosScreen = () => {
   }, [dispatch, momento_id]);
 
   const renderContents = (rawData) => {
-    let orderedData = _.sortBy(rawData, "orden");
+    let orderedData = _.sortBy(rawData, "default_position");
     return orderedData.map((content) => {
       let { type } = content;
       let contentComponent;
-      if (type === "h5p") {
+      if (type === "H5p") {
         contentComponent = (
-          <Content.H5P src={content.url_moment} name={content.name} />
+          <Content.H5P key={content.id} src={content.content.url_h5p} name={content.name} />
         );
       } else if (type === "img") {
         contentComponent = (

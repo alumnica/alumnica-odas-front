@@ -1,11 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
+//Initial State
 export const initialState = {
   loading: false,
   hasErrors: false,
   odas: [],
 };
 
+//Slice
 const odasSlice = createSlice({
   name: "odas",
   initialState,
@@ -14,7 +17,7 @@ const odasSlice = createSlice({
       state.loading = true;
     },
     getOdasSuccess: (state, { payload }) => {
-      state.ODAs = payload;
+      state.odas = payload;
       state.loading = false;
       state.hasErrors = false;
     },
@@ -25,6 +28,28 @@ const odasSlice = createSlice({
   },
 });
 
-export const odasSelector = state => state.odas
+//Actions
+export const { getOdas, getOdasSuccess, getOdasFailure } = odasSlice.actions;
 
+//Selectors
+export const odasSelector = (state) => state.odas;
+
+//Reducer
 export default odasSlice.reducer;
+
+//Functions
+export const fetchOdas = () => {
+  return async (dispatch) => {
+    dispatch(getOdas());
+    try {
+      const response = await axios.get(
+        "https://app.alumnica.org/api/odas/"
+      );
+
+      dispatch(getOdasSuccess(response.data));
+    } catch (error) {
+      console.log(error)
+      dispatch(getOdasFailure());
+    }
+  };
+};

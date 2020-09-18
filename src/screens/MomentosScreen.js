@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Content from "../components/Content.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContenido, contenidoSelector } from "../slices/contenido";
 import _ from "lodash";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import "./MomentoScreen.scss";
+
 import DescriptionCard from "../components/DescriptionCard.js";
+import Content from "../components/Content.js";
+import "./MomentoScreen.scss";
 
 const fakeData = [
   {
@@ -44,7 +48,14 @@ const fakeData = [
 ];
 
 const MomentosScreen = () => {
-  let { id } = useParams();
+  let { momento_id } = useParams();
+
+  const dispatch = useDispatch();
+  const { contenido } = useSelector(contenidoSelector);
+
+  useEffect(() => {
+    dispatch(fetchContenido(momento_id));
+  }, [dispatch,momento_id]);
 
   const renderContents = (rawData) => {
     let orderedData = _.sortBy(rawData, "orden");
@@ -79,7 +90,7 @@ const MomentosScreen = () => {
         <DescriptionCard
           center
           title="Este es el título"
-          extraInfo={`conectar ${id}`}
+          extraInfo={`conectar ${momento_id}`}
         />
         {renderContents(fakeData)}
       </Row>

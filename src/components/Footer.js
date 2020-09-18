@@ -40,7 +40,7 @@ const Footer = () => {
               }}
             >
               <li className="nav-item">
-                <a className="text-center nav-link" href>contenidos</a>
+                <a className="text-center nav-link">contenidos</a>
               </li>
             </div>
           </ul>

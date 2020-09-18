@@ -6,8 +6,8 @@ const H5P = ({ src, name }) => {
       src={src}
       width="1090"
       height="783"
-      frameborder="0"
-      allowfullscreen="allowfullscreen"
+      frameBorder="0"
+      allowFullScreen="allowfullscreen"
       title={name}
     />
   );

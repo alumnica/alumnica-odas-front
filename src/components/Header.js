@@ -37,8 +37,8 @@ const Header = () => {
           id="mobileMenu"
         >
           <ul className="navbar-nav ml-auto text-center">
-            <li class="nav-item">
-              <a class="nav-link" href="https://app.alumnica.org/users/login/">
+            <li className="nav-item">
+              <a className="nav-link header-link" href="https://app.alumnica.org/users/login/">
                 plataforma
               </a>
             </li>
@@ -48,15 +48,15 @@ const Header = () => {
               }}
               className="nav-item"
             >
-              <a className="nav-link" href>contenidos</a>
+              <a role="button" className="nav-link header-link">contenidos</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="escuelas#contacto">
+              <a className="nav-link header-link" href="https://www.alumnica.org/escuelas#contacto">
                 contacto
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="escuelas">
+              <a className="nav-link header-link" href="https://www.alumnica.org/escuelas">
                 escuelas
               </a>
             </li>

@@ -16,10 +16,10 @@ function App() {
         <Route exact path="/">
           <ODAsScreen />
         </Route>
-        <Route exact path="/:id/:name">
+        <Route exact path="/:oda_id/momento/:momento_id">
           <MomentosScreen />
         </Route>
-        <Route exact path="/:id">
+        <Route exact path="/:oda_id">
           <ODAScreen />
         </Route>
       </Switch>

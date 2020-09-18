@@ -1,29 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import Hero from "../components/Hero.js";
-import Container from "react-bootstrap/Container";
-import DescriptionCard from "../components/DescriptionCard.js";
-import ODAInfoCard from "../components/ODAInfoCard.js";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchMomentos, momentosSelector } from "../slices/momentos";
 
+import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import Hero from "../components/Hero.js";
+import DescriptionCard from "../components/DescriptionCard.js";
+import ODAInfoCard from "../components/ODAInfoCard.js";
+
 const ODAScreen = () => {
-  let { id } = useParams();
+  let { oda_id } = useParams();
   let history = useHistory();
 
-  const onClick = () => {
-    history.push(`/${id}/idMOMENTO`);
+  const dispatch = useDispatch();
+  const { momentos } = useSelector(momentosSelector);
+
+  useEffect(() => {
+    dispatch(fetchMomentos(oda_id));
+  }, [dispatch, oda_id]);
+
+  const onClick = (momento_id) => {
+    history.push(`/${oda_id}/momento/${momento_id}`);
   };
+  console.log("momento", momentos);
   return (
     <>
       <Hero>
         <div
           onClick={() => {
-            onClick();
+            onClick(37);
           }}
         >
-          <h2 className="title">Soy la ODA con id: {id}</h2>
+          <h2 className="title">Soy la ODA con id: {oda_id}</h2>
         </div>
       </Hero>
       <Container>

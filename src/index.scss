@@ -162,6 +162,7 @@ h4.nota-materia {
     margin: 0 0.5rem;
     &:hover {
       color: $nav-gray;
+      cursor: pointer;
     }
   }
 }

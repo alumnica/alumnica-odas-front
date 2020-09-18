@@ -26,6 +26,7 @@ const ODAScreen = () => {
 
   useEffect(() => {
     dispatch(fetchMomentos(oda_id));
+//ASI LO ARREGLE ABRAHAM
     if (!oda) {
       dispatch(fetchOdas());
     }

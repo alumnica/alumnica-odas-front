@@ -1,10 +1,104 @@
-.hero {
-  width: 100%;
-  height: 100%;
-  background-color: pink;
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
+$alumnica-green: #ccff8d;
+$base-height: 40vh;
+
+.hero-container {
+  height: $base-height;
+  background: white;
+  background-image: linear-gradient(
+    to right,
+    #77e0b3,
+    #4a99be,
+    #4d51c7,
+    #4e41c9,
+    #4e3cc9
+  );
+  position: relative;
 }
 
-div.hero-container {
-  padding: 0;
-  height: 40vh;
+.hero-icon {
+  width: auto;
+  position: absolute;
+  height: $base-height;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  z-index: 10;
+}
+
+.hero-title {
+  display: none;
+  color: white;
+  padding-left: 1rem;
+}
+.hero-title-container {
+  z-index: 1000;
+}
+.sm-hero-info-container {
+  h1 {
+    color: black;
+  }
+}
+@include media-breakpoint-up(sm) {
+  .hero-container {
+    margin-bottom: $base-height * 0.1;
+  }
+
+  .hero-icon {
+    width: auto;
+    height: 120%;
+    bottom: -25%;
+    right: 5%;
+    transform: translate(0, 0);
+  }
+
+  .hero-title {
+    display: block;
+  }
+  .sm-hero-info-container {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .hero-icon {
+    width: auto;
+    height: 100%;
+    bottom: -20%;
+    right: 5%;
+    transform: translate(0, 0);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero-icon {
+    width: auto;
+    height: 100%;
+    bottom: -15%;
+    right: 5%;
+  }
+}
+
+@media only screen and (max-height: 420px) and (orientation: landscape) {
+  .hero-container {
+    height: $base-height * 1.8;
+  }
+  .hero-title {
+    display: block;
+    color: white;
+    margin-left: 1rem;
+  }
+  .hero-icon {
+    width: auto;
+    height: 100%;
+    bottom: -15%;
+    right: 5%;
+    transform: translate(0, 0);
+  }
+  .sm-hero-info-container h1 {
+    display: none;
+  }
 }

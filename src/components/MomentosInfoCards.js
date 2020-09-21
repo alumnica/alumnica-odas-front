@@ -9,10 +9,6 @@ import Row from "react-bootstrap/Row";
 const ODAInfoCard = ({ momentos, oda_id }) => {
   let history = useHistory();
 
-  const onClick = (momento_id) => {
-    history.push(`/${oda_id}/momento/${momento_id}`);
-  };
-
   const formatName = (name) => {
     return name.split("_oda_")[0];
   };
@@ -45,14 +41,20 @@ const ODAInfoCard = ({ momentos, oda_id }) => {
     return momentos.map(({ name, type, description, id }) => {
       let formattedType = formatType(type.name);
       let formattedName = formatName(name);
+      const onClickHandler = () => {
+        history.push(`/${oda_id}/momento/${id}`);
+      };
       return (
         <Col
           className={formattedType === "integrar" && "order-12"}
           key={id}
           md="6"
-          onClick={() => onClick(id)}
         >
-          <DescriptionCard extraInfo={formattedType} title={formattedName}>
+          <DescriptionCard
+            onClick={onClickHandler}
+            extraInfo={formattedType}
+            title={formattedName}
+          >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

@@ -4,3 +4,13 @@
     margin:0;
   }
 }
+
+.clickable-card {
+  &:hover {
+    opacity: 80%;
+  }
+}
+
+.eye{
+  color:#007bff;
+}

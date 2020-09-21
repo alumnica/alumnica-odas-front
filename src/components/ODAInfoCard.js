@@ -16,7 +16,6 @@ const ODAInfoCard = ({ objective, subject, description }) => {
           </DescriptionCard>
         </Col>
       </Row>
-      <hr />
     </>
   );
 };

@@ -68,7 +68,13 @@ const ODAInfoCard = ({ momentos, oda_id }) => {
     });
   };
 
-  return <Row>{renderMomentoCards(momentos)}</Row>;
+  return (
+    <>
+      <hr />
+      <Row>{renderMomentoCards(momentos)}</Row>
+      <hr />
+    </>
+  );
 };
 
 export default ODAInfoCard;

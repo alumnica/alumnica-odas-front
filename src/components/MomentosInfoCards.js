@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import DescriptionCard from "../components/DescriptionCard.js";
+import BasicCard from "../components/BasicCard.js";
 
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -50,10 +50,12 @@ const ODAInfoCard = ({ momentos, oda_id }) => {
           key={id}
           md="6"
         >
-          <DescriptionCard
+          <BasicCard
             onClick={onClickHandler}
             extraInfo={formattedType}
             title={formattedName}
+            eyeIcon
+            clickable
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
@@ -62,7 +64,7 @@ const ODAInfoCard = ({ momentos, oda_id }) => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-          </DescriptionCard>
+          </BasicCard>
         </Col>
       );
     });

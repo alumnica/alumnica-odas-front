@@ -3,7 +3,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Hero.scss";
-import img from "../assets/portadas_ODA_EPEG.png";
 
 const Hero = ({ children, title, imgSrc }) => {
   return (
@@ -12,16 +11,16 @@ const Hero = ({ children, title, imgSrc }) => {
         <Row className="align-items-center justify-content-start h-100 text-left">
           <Col className="hero-title-container" sm={6} lg={7}>
             <h1 className="hero-title">
-              Introducción a la medición científica
+              {title}
             </h1>
           </Col>
         </Row>
-        <img className="hero-icon" src={img} />
+        <img className="hero-icon" src={imgSrc} />
       </Container>
       <Container className="sm-hero-info-container">
         <Row className="justify-content-md-center">
           <Col sm="10" className="my-4">
-            <h1>Introducción a la medición científica</h1>
+            <h1>{title}</h1>
           </Col>
         </Row>
       </Container>

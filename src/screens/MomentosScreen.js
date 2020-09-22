@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 
-import DescriptionCard from "../components/DescriptionCard.js";
+import BasicCard from "../components/BasicCard.js";
 import Content from "../components/Content.js";
 import "./MomentoScreen.scss";
 
@@ -88,7 +88,7 @@ const MomentosScreen = () => {
     <div className="screen-container">
       <Container>
         <Row className="justify-content-center">
-          <DescriptionCard
+          <BasicCard
             center
             title="Este es el título"
             extraInfo={`conectar ${momento_id}`}

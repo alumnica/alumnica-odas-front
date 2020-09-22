@@ -10,8 +10,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import Hero from "../components/Hero.js";
-import DescriptionCard from "../components/DescriptionCard.js";
-import ODAInfoCard from "../components/ODAInfoCard.js";
+import BasicCard from "../components/BasicCard.js";
+import ODAInfoCards from "../components/ODAInfoCards.js";
 import MomentosInfoCards from "../components/MomentosInfoCards.js";
 
 const ODAScreen = () => {
@@ -38,7 +38,7 @@ const ODAScreen = () => {
         <h2 className="title">Soy la ODA con id: {oda_id}</h2>
       </Hero>
       <Container>
-        <ODAInfoCard
+        <ODAInfoCards
           name={oda && oda.name}
           description={oda && oda.description}
           objective="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."

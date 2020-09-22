@@ -1,18 +1,24 @@
 import React from "react";
-import "./DescriptionCard.scss";
+import "./BasicCard.scss";
 
-const DescriptionCard = ({
+const BasicCard = ({
   children,
   onClick,
   title,
   extraInfo,
   mini,
   center,
+  clickable,
+  eyeIcon,
 }) => {
+  const handleOnClick = () => {
+    return onClick ? onClick() : null;
+  };
+
   return (
     <div
-      onClick={() => onClick()}
-      className={`${onClick && "clickable-card"} description-card ${
+      onClick={() => handleOnClick()}
+      className={`${clickable && "clickable-card"} description-card ${
         center && "text-center"
       }`}
     >
@@ -23,7 +29,7 @@ const DescriptionCard = ({
         </h2>
       )}
       <p className="content">{children}</p>
-      {onClick && (
+      {eyeIcon && (
         <p className="eye">
           Ver <i className="far fa-eye" />
         </p>
@@ -32,4 +38,4 @@ const DescriptionCard = ({
   );
 };
 
-export default DescriptionCard;
+export default BasicCard;

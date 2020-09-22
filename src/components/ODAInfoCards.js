@@ -8,7 +8,7 @@ const ODAInfoCards = ({ objective, subject, description }) => {
     <>
       <Row className="justify-content-md-center">
         <Col sm="10" className="my-4">
-          <BasicCard title={"descripción"} extraInfo={subject}>
+          <BasicCard title={"descripción"} extraInfo={subject && subject.toLowerCase()}>
             {description}
           </BasicCard>
           <BasicCard title={"propósito de aprendizaje"}>

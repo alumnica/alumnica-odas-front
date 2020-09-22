@@ -7,6 +7,7 @@ import _ from "lodash";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Twine from "../components/Twine.js"
 
 import BasicCard from "../components/BasicCard.js";
 import Content from "../components/Content.js";
@@ -83,7 +84,8 @@ const MomentosScreen = () => {
     });
   };
 
-  renderContents(fakeData);
+  // return (<Twine/>)
+  //
   return (
     <div className="screen-container">
       <Container>

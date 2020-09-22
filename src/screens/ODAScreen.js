@@ -34,9 +34,8 @@ const ODAScreen = () => {
 
   return (
     <div className="screen-container">
-      <Hero>
-        <h2 className="title">Soy la ODA con id: {oda_id}</h2>
-      </Hero>
+      <Hero title={oda && oda.name} />
+
       <Container>
         <ODAInfoCards
           name={oda && oda.name}

@@ -13,7 +13,7 @@ const ODAsScreen = () => {
   let history = useHistory();
 
   const renderODACards = (data) => {
-    return data.map(({ id, name, description, img_oda, subject }) => {
+    return data.map(({ id, name, description, img_oda, subject,img_portada }) => {
 
       const onClick = () => history.push(`/${id}`);
 
@@ -24,7 +24,7 @@ const ODAsScreen = () => {
           extraInfo={subject.name.toLowerCase()}
           name={name}
           key={id}
-          imgSrc={img_oda}
+          imgSrc={img_oda.file}
         >
           {description}
         </CardWithImg>

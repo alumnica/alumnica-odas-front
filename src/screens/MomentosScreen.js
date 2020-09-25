@@ -7,7 +7,9 @@ import _ from "lodash";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Twine from "../components/Twine.js"
+import Twine from "../components/Twine.js";
+import Agamotto from "../components/Agamotto.js";
+import Question from "../components/Question.js";
 
 import BasicCard from "../components/BasicCard.js";
 import Content from "../components/Content.js";
@@ -65,7 +67,11 @@ const MomentosScreen = () => {
       let contentComponent;
       if (type === "H5p") {
         contentComponent = (
-          <Content.H5P key={content.id} src={content.content.url_h5p} name={content.name} />
+          <Content.H5P
+            key={content.id}
+            src={content.content.url_h5p}
+            name={content.name}
+          />
         );
       } else if (type === "img") {
         contentComponent = (
@@ -84,8 +90,6 @@ const MomentosScreen = () => {
     });
   };
 
-  // return (<Twine/>)
-  //
   return (
     <div className="screen-container">
       <Container>
@@ -96,6 +100,14 @@ const MomentosScreen = () => {
             extraInfo={`conectar ${momento_id}`}
           />
           {renderContents(fakeData)}
+
+          <Col sm="10" className="block justify-content-center mx-auto">
+            <Agamotto />
+          </Col>
+
+          <Col sm="10" className="block justify-content-center mx-auto">
+            <Question />
+          </Col>
         </Row>
       </Container>
     </div>

@@ -1,0 +1,19 @@
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../node_modules/slick-carousel/slick/slick-theme.scss";
+
+.container-slider {
+  background-color: white;
+}
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+.slick-slide div {
+  outline: none;
+}
+
+.slick-dots li button:before {
+  font-family: "slick";
+  font-size: 0.7rem;
+  line-height: 2rem;
+}

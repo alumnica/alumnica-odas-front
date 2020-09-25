@@ -24,7 +24,7 @@ const ODAsScreen = () => {
           extraInfo={subject.name.toLowerCase()}
           name={name}
           key={id}
-          imgSrc={img_oda.file}
+          imgSrc={img_oda && img_oda.file}
         >
           {description}
         </CardWithImg>

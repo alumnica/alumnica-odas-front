@@ -1,0 +1,38 @@
+@mixin text-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+  border-color: white;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.answer {
+  @include text-box;
+  background-color: #f8f9fa;
+  &.incorrect {
+    border-color: red;
+  }
+  &.correct {
+    border-color: green;
+  }
+}
+
+.question {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.retro {
+  @include text-box;
+  &.positive {
+    background-color: scale-color(green, $lightness: 90%);
+  }
+  &.negative {
+    background-color: scale-color(red, $lightness: 90%);
+  }
+}

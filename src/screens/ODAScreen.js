@@ -34,7 +34,7 @@ const ODAScreen = () => {
 
   return (
     <div className="screen-container">
-      <Hero title={oda && oda.name} imgSrc={oda && oda.img_portada.file}/>
+      <Hero title={oda && oda.name} imgSrc={oda && oda.img_portada && oda.img_portada.file}/>
 
       <Container>
         <ODAInfoCards

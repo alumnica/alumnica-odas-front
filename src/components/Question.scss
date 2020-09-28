@@ -27,6 +27,10 @@
   font-size: 1.1rem;
 }
 
+.question-container {
+  margin-bottom: 3rem;
+}
+
 .retro {
   @include text-box;
   &.positive {

@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Twine from "../components/Twine.js";
 import Agamotto from "../components/Agamotto.js";
-import Question from "../components/Question.js";
+import Test from "../components/Test.js";
 
 import BasicCard from "../components/BasicCard.js";
 import Content from "../components/Content.js";
@@ -106,7 +106,7 @@ const MomentosScreen = () => {
           </Col>
 
           <Col sm="10" className="block justify-content-center mx-auto">
-            <Question />
+            <Test />
           </Col>
         </Row>
       </Container>

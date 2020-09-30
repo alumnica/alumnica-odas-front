@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMomentos, momentosSelector } from "../slices/momentos";
-import { fetchOdas } from "../slices/odas";
+import { fetchOda } from "../slices/odas";
 import { odaIdSelector } from "../slices/odas";
 
 import Container from "react-bootstrap/Container";
@@ -26,15 +26,17 @@ const ODAScreen = () => {
 
   useEffect(() => {
     dispatch(fetchMomentos(oda_id));
-//ASI LO ARREGLE ABRAHAM
     if (!oda) {
-      dispatch(fetchOdas());
+      dispatch(fetchOda(oda_id));
     }
-  }, [dispatch, oda_id, oda]);
+  }, [dispatch, oda_id, oda, fetchOda, fetchMomentos]);
 
   return (
     <div className="screen-container">
-      <Hero title={oda && oda.name} imgSrc={oda && oda.img_portada && oda.img_portada.file}/>
+      <Hero
+        title={oda && oda.name}
+        imgSrc={oda && oda.img_portada && oda.img_portada.file}
+      />
 
       <Container>
         <ODAInfoCards

@@ -1,36 +1,23 @@
 import React, { useState } from "react";
 import _ from "lodash";
-import { setSelectedAnswer, questionSelector } from "../slices/test";
-import { useDispatch, useSelector } from "react-redux";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import "./Question.scss";
 
-const Question = ({ testID, questionID, index }) => {
-  const dispatch = useDispatch();
-  const question = useSelector((state) => {
-    return questionSelector(state, testID, questionID);
-  });
-  const [selected, setSelected] = useState(question.selected);
+const Question = ({ questionData,index }) => {
+  const [selected, setSelected] = useState(null);
 
   const selectHandler = (i) => {
-    dispatch(
-      setSelectedAnswer({
-        questionID: questionID,
-        answerIndex: i,
-        testID: testID,
-      })
-    );
     setSelected(i);
   };
 
   const _renderAnswers = () => {
-    return question.answers.map((answer, i) => {
+    return questionData.answers.map((answer, i) => {
       let styles;
       if (i === selected) {
-        if (i === question.correct_answer) {
+        if (i === questionData.correct_answer) {
           styles = "correct";
         } else {
           styles = "incorrect";
@@ -53,12 +40,12 @@ const Question = ({ testID, questionID, index }) => {
   const _renderRetro = () => {
     if (selected !== null) {
       let result =
-        selected === question.correct_answer ? "positive" : "negative";
+        selected === questionData.correct_answer ? "positive" : "negative";
 
       return (
-        question[`${result}_retro`] && (
+        questionData[`${result}_retro`] && (
           <div className={`${result} retro`}>
-            <p>{question[`${result}_retro`]}</p>
+            <p>{questionData[`${result}_retro`]}</p>
           </div>
         )
       );
@@ -69,9 +56,7 @@ const Question = ({ testID, questionID, index }) => {
     <div>
       <Row className="question-container justify-content-center">
         <Col sm="12">
-          <p className="question">{`${index && `${index}. `}${
-            question.question
-          }`}</p>
+          <p className="question">{`${index && `${index}. ` }${questionData.question}`}</p>
           {_renderAnswers()}
           {_renderRetro()}
         </Col>

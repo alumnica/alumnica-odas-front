@@ -21,6 +21,11 @@ const odasSlice = createSlice({
       state.loading = false;
       state.hasErrors = false;
     },
+    getOdaSuccess: (state, { payload }) => {
+      state.odas = [payload];
+      state.loading = false;
+      state.hasErrors = false;
+    },
     getOdasFailure: (state) => {
       state.loading = false;
       state.hasErrors = true;
@@ -29,7 +34,7 @@ const odasSlice = createSlice({
 });
 
 //Actions
-export const { getOdas, getOdasSuccess, getOdasFailure } = odasSlice.actions;
+export const { getOdas, getOdasSuccess, getOdaSuccess, getOdasFailure } = odasSlice.actions;
 
 //Selectors
 export const odasSelector = (state) => state.odas;
@@ -49,6 +54,20 @@ export const fetchOdas = () => {
       const response = await axios.get("https://app.alumnica.org/api/odas/");
 
       dispatch(getOdasSuccess(response.data));
+    } catch (error) {
+      console.log(error);
+      dispatch(getOdasFailure());
+    }
+  };
+};
+
+export const fetchOda = (id) => {
+  return async (dispatch) => {
+    dispatch(getOdas());
+    try {
+      const response = await axios.get(`https://app.alumnica.org/api/odas/${id}/`);
+
+      dispatch(getOdaSuccess(response.data));
     } catch (error) {
       console.log(error);
       dispatch(getOdasFailure());
